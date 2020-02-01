@@ -47,7 +47,13 @@ public class CrabSpawner : MonoBehaviour
 
         Vector3 crabPos = new Vector3(x, spawnHeight, z);
 
-        Instantiate(crabPrefab, crabPos, Quaternion.identity, this.transform);
+        GameObject crab = Instantiate(crabPrefab, crabPos, Quaternion.identity, this.transform);
+        if (timer > 10 && timer <= 15) crab.GetComponent<Crab>().setSpeed(70);
+        else if (timer > 15 && timer <= 20) crab.GetComponent<Crab>().setSpeed(80);
+        else if (timer > 20 && timer <= 25) crab.GetComponent<Crab>().setSpeed(90);
+        else if (timer > 25 && timer <= 30) crab.GetComponent<Crab>().setSpeed(100);
+        else if (timer > 30 && timer <=35) crab.GetComponent<Crab>().setSpeed(110);
+        else if (timer > 35) crab.GetComponent<Crab>().setSpeed(120);
     }
 
     public void setSpawnSpeed()

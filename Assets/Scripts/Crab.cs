@@ -84,4 +84,8 @@ public class Crab : MonoBehaviour
             GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().GameOver();
         }
     }
+    public void setSpeed(float newSpeed)
+    {
+        this.speed = newSpeed;
+    }
 }

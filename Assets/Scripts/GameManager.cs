@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject GOtext;
     bool inMenu;
 
+
+
     public GameObject bucket;
     // Start is called before the first frame update
     void Start()
