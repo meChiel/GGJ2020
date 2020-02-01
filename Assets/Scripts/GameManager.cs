@@ -14,8 +14,27 @@ public class GameManager : MonoBehaviour
     float highscore;
     public GameObject GOtext;
     bool inMenu;
+    float audio1Volume = 1.0f;
+    public AudioSource gameOver;
+    public AudioSource music;
+    bool fade;
 
+    public GameObject firstNumberObj;
+    public GameObject secondNumberObj;
 
+    public GameObject n0;
+    public GameObject n1;
+    public GameObject n2;
+    public GameObject n3;
+    public GameObject n4;
+    public GameObject n5;
+    public GameObject n6;
+    public GameObject n7;
+    public GameObject n8;
+    public GameObject n9;
+
+    GameObject secondGame;
+    GameObject firstGame;
 
     public GameObject bucket;
     // Start is called before the first frame update
@@ -26,6 +45,7 @@ public class GameManager : MonoBehaviour
         timer = 0;
         timerCounting = true;
         highscore = 0;
+        fade = false;
 
     }
 
@@ -34,10 +54,16 @@ public class GameManager : MonoBehaviour
     {
         if (timerCounting)
         {
-        timer += Time.deltaTime;
-        timerText.gameObject.GetComponent<Text>().text = "You've lasted " + Mathf.Round(timer).ToString() + " seconds.";
+            timer += Time.deltaTime;
+            timerText.gameObject.GetComponent<Text>().text = "You've lasted " + Mathf.Round(timer).ToString() + " seconds.";
+
+            float firstNb = Mathf.Floor(timer / 10f);
+            float secondNb = Mathf.Round(timer % 10f);
+            setScore(firstNb, secondNb);
+            
+            
         }
-        if(timer > 6f)
+        if (timer > 15f)
         {
             GetComponent<BirdSpawner>().enabled = true;
         }
@@ -52,6 +78,12 @@ public class GameManager : MonoBehaviour
         {
             respawnBucket();
         }
+
+        if (fade)
+        {
+            fadeOut(music);
+        }
+
     }
 
     public void respawnBucket()
@@ -69,6 +101,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        gameOver.Play();
+        fade = true;
         timerCounting = false;
         if (timer > highscore)
         {
@@ -86,6 +120,93 @@ public class GameManager : MonoBehaviour
 
         //cameraCanvas.gameObject.SetActive(true);
         //cameraCanvas.transform.Find("GameOver").gameObject.SetActive(true);
+    }
+
+    void fadeOut(AudioSource audio)
+    {
+        if (audio1Volume > 0.1)
+        {
+            audio1Volume -= 0.1f * Time.deltaTime;
+            audio.volume = audio1Volume;
+        }
+    }
+
+    void setScore(float firstNbS, float secondNbS)
+    {
+        Destroy(firstGame);
+        Destroy(secondGame);
+        switch (firstNbS)
+        {
+            case 0:
+                firstGame = Instantiate(n0, firstNumberObj.transform);
+                break;
+            case 1:
+                firstGame = Instantiate(n1, firstNumberObj.transform);
+                break;
+            case 2:
+                firstGame = Instantiate(n2, firstNumberObj.transform);
+                break;
+            case 3:
+                firstGame = Instantiate(n3, firstNumberObj.transform);
+                break;
+            case 4:
+                firstGame = Instantiate(n4, firstNumberObj.transform);
+                break;
+            case 5:
+                firstGame = Instantiate(n5, firstNumberObj.transform);
+                break;
+            case 6:
+                firstGame = Instantiate(n6, firstNumberObj.transform);
+                break;
+            case 7:
+                firstGame = Instantiate(n7, firstNumberObj.transform);
+                break;
+            case 8:
+                firstGame = Instantiate(n8, firstNumberObj.transform);
+                break;
+            case 9:
+                firstGame = Instantiate(n9, firstNumberObj.transform);
+                break;
+            default:
+                break;
+
+        }
+        switch (secondNbS)
+        {
+            case 0:
+                secondGame = Instantiate(n0, secondNumberObj.transform);
+                break;
+            case 1:
+                secondGame = Instantiate(n1, secondNumberObj.transform);
+                break;
+            case 2:
+                secondGame = Instantiate(n2, secondNumberObj.transform);
+                break;
+            case 3:
+                secondGame = Instantiate(n3, secondNumberObj.transform);
+                break;
+            case 4:
+                secondGame = Instantiate(n4, secondNumberObj.transform);
+                break;
+            case 5:
+                secondGame = Instantiate(n5, secondNumberObj.transform);
+                break;
+            case 6:
+                secondGame = Instantiate(n6, secondNumberObj.transform);
+                break;
+            case 7:
+                secondGame = Instantiate(n7, secondNumberObj.transform);
+                break;
+            case 8:
+                secondGame = Instantiate(n8, secondNumberObj.transform);
+                break;
+            case 9:
+                secondGame = Instantiate(n9, secondNumberObj.transform);
+                break;
+            default:
+                break;
+
+        }
     }
 }
 
