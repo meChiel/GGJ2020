@@ -162,5 +162,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   blockCarryHeight: 5
-  despawnDistance: 30
+  despawnDistance: 10
   goal: {fileID: 0}

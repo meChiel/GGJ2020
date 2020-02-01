@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public AudioSource music;
     bool fade;
 
+    public GameObject rCubes;
+
     public GameObject firstNumberObj;
     public GameObject secondNumberObj;
 
@@ -37,22 +39,45 @@ public class GameManager : MonoBehaviour
     GameObject firstGame;
 
     public GameObject bucket;
+    public GameObject introObj;
     // Start is called before the first frame update
+
+
+    float introTimer;
+    bool introPlaying;
+    public float introDuration = 10f;
     void Start()
     {
+        rCubes.GetComponent<RandomCubes>().enabled = false;
         cameraCanvas.gameObject.SetActive(false);
         canvas.gameObject.SetActive(false);
         timer = 0;
-        timerCounting = true;
+        timerCounting = false;
         highscore = 0;
         fade = false;
-
+        this.GetComponent<CrabSpawner>().enabled = false;
+        introTimer = 0;
+        introPlaying = true;
+        intro();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timerCounting)
+        if (introPlaying)
+        {
+            introTimer += Time.deltaTime;
+            if (introTimer > introDuration)
+            {
+                introObj.SetActive(false);
+                introPlaying = false;
+                this.GetComponent<CrabSpawner>().enabled = true;
+                timerCounting = true;
+                rCubes.GetComponent<RandomCubes>().enabled = true;
+            }
+
+        }
+        else if (timerCounting)
         {
             timer += Time.deltaTime;
             timerText.gameObject.GetComponent<Text>().text = "You've lasted " + Mathf.Round(timer).ToString() + " seconds.";
@@ -61,12 +86,16 @@ public class GameManager : MonoBehaviour
             float secondNb = Mathf.Round(timer % 10f);
             setScore(firstNb, secondNb);
             
-            
+            if (timer > 15f)
+            {
+                GetComponent<BirdSpawner>().enabled = true;
+            } 
+            if (OVRInput.Get(OVRInput.Button.PrimaryThumbstick))
+            {
+                respawnBucket();
+            }  
         }
-        if (timer > 15f)
-        {
-            GetComponent<BirdSpawner>().enabled = true;
-        }
+
 
         if (OVRInput.GetDown(OVRInput.Button.Start))
         {
@@ -74,11 +103,7 @@ public class GameManager : MonoBehaviour
             else canvas.gameObject.SetActive(true);
             inMenu = !inMenu;
         }
-        if (OVRInput.Get(OVRInput.Button.PrimaryThumbstick))
-        {
-            respawnBucket();
-        }
-
+   
         if (fade)
         {
             fadeOut(music);
@@ -207,6 +232,11 @@ public class GameManager : MonoBehaviour
                 break;
 
         }
+    }
+
+    void intro()
+    {
+        //play animation
     }
 }
 

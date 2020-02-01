@@ -16,9 +16,11 @@ public class SandCube : OVRGrabbable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if((collision.gameObject.tag == "ground" || collision.gameObject.tag == "sandblock") && hasNotBeenGrabbed)
-        {
-            destroyCube();
+       // if((collision.gameObject.tag == "ground" || collision.gameObject.tag == "sandblock") && hasNotBeenGrabbed)
+        if ((collision.gameObject.tag != "player") && hasNotBeenGrabbed)
+
+            {
+                destroyCube();
         }
     }
 

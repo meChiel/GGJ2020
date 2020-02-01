@@ -9,6 +9,7 @@ TagManager:
   - goal
   - gameManager
   - vogel
+  - player
   layers:
   - Default
   - TransparentFX
