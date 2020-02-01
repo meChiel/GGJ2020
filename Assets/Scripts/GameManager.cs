@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     bool timerCounting;
     float highscore;
     public GameObject GOtext;
+    bool inMenu;
+
+    public GameObject bucket;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,22 @@ public class GameManager : MonoBehaviour
         {
             GetComponent<BirdSpawner>().enabled = true;
         }
+
+        if (OVRInput.GetDown(OVRInput.Button.Start))
+        {
+            if (inMenu) canvas.gameObject.SetActive(false);
+            else canvas.gameObject.SetActive(true);
+            inMenu = !inMenu;
+        }
+        if (OVRInput.Get(OVRInput.Button.PrimaryThumbstick))
+        {
+            respawnBucket();
+        }
+    }
+
+    public void respawnBucket()
+    {
+        bucket.transform.position = new Vector3(0.1f, 1f, 0);
 
     }
     public void reloadLevel()
