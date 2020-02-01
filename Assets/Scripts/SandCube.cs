@@ -22,7 +22,7 @@ public class SandCube : OVRGrabbable
         }
     }
 
-    void destroyCube()
+    public void destroyCube()
     {
         Instantiate(explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
         Destroy(this.gameObject);
