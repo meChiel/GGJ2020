@@ -16,14 +16,17 @@ public class CrabSpawner : MonoBehaviour
 
     float previousSpawnTime = 0;
     float timePerCrab;
+    float timer;
 
     void Start()
     {
+        timer = 0;
         timePerCrab = 1 / crabsPerSecond;
     }
 
     void Update()
     {
+        timer += Time.deltaTime;
         //Debug.Log("crabsPerSecond: " + crabsPerSecond + " slider value: " + crabSlider.value);
         crabsPerSecond = crabSlider.value;
         timePerCrab = 1 / crabsPerSecond;

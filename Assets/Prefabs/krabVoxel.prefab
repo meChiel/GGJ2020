@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4068413297830413512
+--- !u!1 &2513626238846362744
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1021949389561575131}
-  - component: {fileID: 8319757308556053741}
-  - component: {fileID: 2326459240882532372}
-  - component: {fileID: 6963886978495028129}
-  - component: {fileID: -3123658944455533352}
-  - component: {fileID: -5511848843780496901}
-  - component: {fileID: -905936970912486020}
-  - component: {fileID: -2680743665124154039}
+  - component: {fileID: 1493339547186959979}
+  - component: {fileID: 7629782596499549277}
+  - component: {fileID: 4242082657919029412}
+  - component: {fileID: 8805500058642135825}
+  - component: {fileID: 2513626238846362628}
+  - component: {fileID: 2513626238846362629}
+  - component: {fileID: 2513626238846362746}
+  - component: {fileID: 2513626238846362747}
   m_Layer: 0
-  m_Name: krabSmall
+  m_Name: krabVoxel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1021949389561575131
+--- !u!4 &1493339547186959979
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4068413297830413512}
+  m_GameObject: {fileID: 2513626238846362744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalPosition: {x: -2.1165578, y: 0.2675353, z: -2.1877632}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8319757308556053741
+--- !u!33 &7629782596499549277
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4068413297830413512}
-  m_Mesh: {fileID: 2534964839176971238, guid: b50cb41077ecd8b43a49120d715484d1, type: 3}
---- !u!23 &2326459240882532372
+  m_GameObject: {fileID: 2513626238846362744}
+  m_Mesh: {fileID: 2534964839176971238, guid: d728ac5ab4159a4449232f70de0b218a, type: 3}
+--- !u!23 &4242082657919029412
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4068413297830413512}
+  m_GameObject: {fileID: 2513626238846362744}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7054785451436628788, guid: b50cb41077ecd8b43a49120d715484d1, type: 3}
+  - {fileID: -874164558550236988, guid: d728ac5ab4159a4449232f70de0b218a, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,14 +83,14 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &6963886978495028129
+--- !u!95 &8805500058642135825
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4068413297830413512}
+  m_GameObject: {fileID: 2513626238846362744}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d728ac5ab4159a4449232f70de0b218a, type: 3}
   m_Controller: {fileID: 0}
@@ -102,29 +102,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-3123658944455533352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4068413297830413512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 930660eba3e17fe449cf5b1759c964db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 40
-  blockCarryHeight: 5
-  despawnDistance: 30
-  goal: {fileID: 0}
---- !u!54 &-5511848843780496901
+--- !u!54 &2513626238846362628
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4068413297830413512}
+  m_GameObject: {fileID: 2513626238846362744}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -134,26 +118,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-905936970912486020
+--- !u!65 &2513626238846362629
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4068413297830413512}
+  m_GameObject: {fileID: 2513626238846362744}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13, y: 2.4, z: 13}
-  m_Center: {x: 0, y: 1.1748533, z: 1.1141382}
---- !u!114 &-2680743665124154039
+  m_Size: {x: 11, y: 2, z: 12}
+  m_Center: {x: -0.033209562, y: 0.81, z: 0.8674426}
+--- !u!114 &2513626238846362746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4068413297830413512}
+  m_GameObject: {fileID: 2513626238846362744}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
@@ -164,3 +148,19 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+--- !u!114 &2513626238846362747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2513626238846362744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930660eba3e17fe449cf5b1759c964db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  blockCarryHeight: 5
+  despawnDistance: 30
+  goal: {fileID: 0}

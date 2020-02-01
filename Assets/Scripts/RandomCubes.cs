@@ -21,7 +21,7 @@ public class RandomCubes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("CubeTimer: " + cubeTimer + " slider value: " + cubeSlider.value);
+        //Debug.Log("CubeTimer: " + cubeTimer + " slider value: " + cubeSlider.value);
         cubeTimer = cubeSlider.value;
      //   cubeSlider.GetComponent<Text>().text = "Cube slider value: " + cubeTimer;
         timer += Time.deltaTime;
