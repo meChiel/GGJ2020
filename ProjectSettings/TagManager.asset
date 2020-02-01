@@ -6,6 +6,8 @@ TagManager:
   tags:
   - sandblock
   - ground
+  - goal
+  - gameManager
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4268446829296205642}
   - component: {fileID: 6383669299934152200}
   m_Layer: 0
-  m_Name: SandCube2
+  m_Name: SandCubeFalling
   m_TagString: sandblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,5 +145,6 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+  hasNotBeenGrabbed: 1
   explosion: {fileID: 8776784860828335475, guid: 2e82eeabc5cc55f45a9f22ca0793daca,
     type: 3}

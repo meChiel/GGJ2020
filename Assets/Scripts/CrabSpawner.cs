@@ -24,7 +24,7 @@ public class CrabSpawner : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("crabsPerSecond: " + crabsPerSecond + " slider value: " + crabSlider.value);
+        //Debug.Log("crabsPerSecond: " + crabsPerSecond + " slider value: " + crabSlider.value);
         crabsPerSecond = crabSlider.value;
         timePerCrab = 1 / crabsPerSecond;
         //crabSlider.GetComponent<Text>().text = "Crab slider value: " + crabsPerSecond;

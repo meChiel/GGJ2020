@@ -146,5 +146,5 @@ MonoBehaviour:
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
   hasNotBeenGrabbed: 0
-  explosion: {fileID: 8776784860828335475, guid: 2e82eeabc5cc55f45a9f22ca0793daca,
+  explosion: {fileID: 4288893863113419661, guid: 0fd346908d3aedf4d969a5328839e02a,
     type: 3}

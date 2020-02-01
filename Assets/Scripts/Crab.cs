@@ -14,12 +14,15 @@ public class Crab : MonoBehaviour
     bool attack = true;
     bool runAway = false;
 
+    public GameObject goal;
+
 
     void Start()
     {
         //moet nog aangepast worden naar positie speler
         playerpos = new Vector3(0, 0, 0);
         rb = this.GetComponent<Rigidbody>();
+        goal = GameObject.FindGameObjectWithTag("goal");
     }
 
     void Update()
@@ -30,7 +33,7 @@ public class Crab : MonoBehaviour
             direction = new Vector3(direction.x, 0, direction.z);
             direction = direction.normalized;
 
-            rb.velocity = direction * speed * Time.deltaTime;
+            rb.velocity = new Vector3(direction.x * speed * Time.deltaTime, rb.velocity.y, direction.z * speed * Time.deltaTime);
             this.transform.rotation = Quaternion.LookRotation(direction);
         }
         else if (runAway)
@@ -39,7 +42,7 @@ public class Crab : MonoBehaviour
             direction = new Vector3(direction.x, 0, direction.z);
             direction = direction.normalized;
 
-            rb.velocity = direction * speed * Time.deltaTime;
+            rb.velocity = new Vector3(direction.x * speed * Time.deltaTime, rb.velocity.y, direction.z * speed * Time.deltaTime);
             this.transform.rotation = Quaternion.LookRotation(direction);
 
             if ((this.transform.position - playerpos).magnitude > despawnDistance)
@@ -64,6 +67,21 @@ public class Crab : MonoBehaviour
 
             runAway = true;
         }
-    }
 
+        if (other.collider.tag == "goal" && attack)
+        {
+
+            attack = false;
+
+            other.collider.tag = "Untagged";
+            other.transform.SetParent(this.transform);
+            other.transform.localPosition = new Vector3(0, blockCarryHeight, 0);
+
+            Destroy(other.gameObject.GetComponent<Rigidbody>());
+            Destroy(other.gameObject.GetComponent<Collider>());
+
+            runAway = true;
+            GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().GameOver();
+        }
+    }
 }
