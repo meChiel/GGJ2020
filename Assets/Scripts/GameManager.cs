@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         cameraCanvas.gameObject.SetActive(false);
-        canvas.gameObject.SetActive(true);
+        canvas.gameObject.SetActive(false);
         timer = 0;
         timerCounting = true;
         highscore = 0;

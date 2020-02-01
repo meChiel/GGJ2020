@@ -22,22 +22,42 @@ public class Bucket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) == 1)
         {
-            if (bucketCounter > 0 && transform.Find("BucketFull").gameObject.activeSelf && !buttonDown)
+            if (bucketCounter > 0 && !buttonDown)
             {
                 HapticEvent(0.5f);
                 buttonDown = true;
                 bucketCounter -= 1;
+                switch (bucketCounter)
+                {
+                    case 1:
+                        transform.Find("bucket filled2").gameObject.SetActive(false);
+                        transform.Find("bucket filled1").gameObject.SetActive(true);
+                        break;
+                    case 2:
+                        transform.Find("bucket filled3").gameObject.SetActive(false);
+                        transform.Find("bucket filled2").gameObject.SetActive(true);
+                        break;
+                    case 3:
+                        transform.Find("bucket filled4").gameObject.SetActive(false);
+                        transform.Find("bucket filled3").gameObject.SetActive(true);
+                        break;
+                    case 4:
+                        transform.Find("bucket filled5").gameObject.SetActive(false);
+                        transform.Find("bucket filled4").gameObject.SetActive(true);
+                        break;
+                    case 0:
+                        transform.Find("bucket filled1").gameObject.SetActive(false);
+                        break;
+                    default:
+                        break;
+                }
                 Transform cube = Instantiate(cubePrefab, this.transform.position, Quaternion.identity);
                 audio.clip = empty;
                 audio.Play();
                 // cube.gameObject.GetComponent<SandCube>().hasNotBeenGrabbed = false;
-                if (bucketCounter == 0)
-                {
-                    transform.Find("BucketEmpty").gameObject.SetActive(true);
-                    transform.Find("BucketFull").gameObject.SetActive(false);
-                }
             }
         }
         if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) == 0)
@@ -53,14 +73,33 @@ public class Bucket : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<SandCube>().hasNotBeenGrabbed)
             {
-                if (bucketCounter == 0)
-                {
-                    transform.Find("BucketEmpty").gameObject.SetActive(false);
-                    transform.Find("BucketFull").gameObject.SetActive(true);
-                }
                 if (bucketCounter < 5)
                 {
                     bucketCounter += 1;
+                    switch (bucketCounter)
+                    {
+                        case 1:
+                            transform.Find("bucket filled1").gameObject.SetActive(true);
+                            break;
+                        case 2:
+                            transform.Find("bucket filled1").gameObject.SetActive(false);
+                            transform.Find("bucket filled2").gameObject.SetActive(true);
+                            break;
+                        case 3:
+                            transform.Find("bucket filled2").gameObject.SetActive(false);
+                            transform.Find("bucket filled3").gameObject.SetActive(true);
+                            break;
+                        case 4:
+                            transform.Find("bucket filled3").gameObject.SetActive(false);
+                            transform.Find("bucket filled4").gameObject.SetActive(true);
+                            break;
+                        case 5:
+                            transform.Find("bucket filled4").gameObject.SetActive(false);
+                            transform.Find("bucket filled5").gameObject.SetActive(true);
+                            break;
+                        default:
+                            break;
+                    }
                     HapticEvent(0.5f);
                     Destroy(collision.gameObject);
                     audio.clip = fill;
